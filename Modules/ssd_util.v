@@ -1,6 +1,7 @@
 // Yigit Suoglu
 // This file contains modules about seven segment display
-// Modules in this file designed to work with Digilent Basys 3 and 100 MHz clock frequency
+// Modules in this file designed for/tested with Digilent Basys 3 and 100 MHz clock frequency
+// 21 Nov 2020
 /*
  *    abcdefg signals correspond to:
  *

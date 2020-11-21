@@ -1,5 +1,6 @@
 // Yigit Suoglu
 // Contains debouncer module for buttons
+// 21 Nov 2020
 
 module debouncer(clk, rst, in_n, out_c);
   input clk, rst, in_n;
