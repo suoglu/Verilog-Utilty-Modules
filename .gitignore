@@ -1,0 +1,4 @@
+.DS_Store
+tb.v
+*.vcd
+*.out
