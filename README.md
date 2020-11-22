@@ -10,6 +10,8 @@ Collection of some utility modules written in Verilog.
 * Seven Segment Display controller [^1]
 * Seven Segment Display encoder [^1]
 * Button debouncer [^2]
+* Clock dividers [^3]
 
 [^1]: Modules/ssd_util.v
 [^2]: Modules/btn_debouncer.v
+[^3]: Modules/clk_div.v
