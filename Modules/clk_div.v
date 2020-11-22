@@ -1,6 +1,6 @@
 /*
  * This file contains a collection clock dividers
- * Suoglu, 2020
+ * Suoglu, Nov 2020
  */
 
 /*
