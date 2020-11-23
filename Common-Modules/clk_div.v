@@ -69,6 +69,18 @@ module dclk_div2(clk_i, rst, rate_cntrl, clk_o);
   clk_div1 clkdivider1(clk_array[0], rst, clk_array[1]);
 endmodule//dclk_div
 
+module dclk_div2_2(clk_i, rst, rate_cntrl, clk_o);
+  input clk_i, rst;
+  input rate_cntrl;
+  output clk_o;
+  wire [1:0] clk_array;
+
+  assign clk_o = (rate_cntrl) ? clk_array[1] : clk_array[0];
+  
+  clk_div2 clkdivider0(clk_i, rst, clk_array[0]);
+  clk_div2 clkdivider1(clk_array[0], rst, clk_array[1]);
+endmodule//dclk_div2_2
+
 module dclk_div4(clk_i, rst, rate_cntrl, clk_o);
   input clk_i, rst;
   input [1:0] rate_cntrl;
