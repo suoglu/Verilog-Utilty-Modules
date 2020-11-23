@@ -13,7 +13,7 @@ Collection of some utility modules written in Verilog.
 * Clock dividers [^3]
 * Counters [^4]
 
-[^1]: Modules/ssd_util.v
-[^2]: Modules/btn_debouncer.v
-[^3]: Modules/clk_div.v
-[^4]: Modules/counters.v
+[^1]: Common-Modules/ssd_util.v
+[^2]: Common-Modules/btn_debouncer.v
+[^3]: Common-Modules/clk_div.v
+[^4]: Common-Modules/counters.v
