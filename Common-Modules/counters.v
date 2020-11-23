@@ -16,11 +16,21 @@ module counter_p#(parameter COUNTER_WIDTH = 8)(clk, start, en, done, count, limi
   output done;
   output reg [(COUNTER_WIDTH-1):0] count;
 
+  reg start_del;
+  wire start_edge;
+
+  assign start_edge = ~start_del & start; 
   assign done = (limit == count) & (|limit); //when limit is 0, keep counting
+
+  always@(posedge clk)
+    begin
+      start_del <= start;
+    end
+  
    
   always@(posedge clk)
     begin
-      if(start)
+      if(start_edge)
         begin
           count <= {{(COUNTER_WIDTH-1){1'b0}}, en};
         end
@@ -37,11 +47,20 @@ module counter8bit(clk, start, en, done, count, limit);
   output done;
   output reg [7:0] count;
 
+  reg start_del;
+  wire start_edge;
+
+  assign start_edge = ~start_del & start; 
   assign done = (limit == count) & (|limit); //when limit is 0, keep counting
+
+  always@(posedge clk)
+    begin
+      start_del <= start;
+    end
    
   always@(posedge clk)
     begin
-      if(start)
+      if(start_edge)
         begin
           count <= {7'b0, en};
         end
@@ -57,12 +76,21 @@ module counter16bit(clk, start, en, done, count, limit);
   input [15:0] limit;
   output done;
   output reg [15:0] count;
+  
+  reg start_del;
+  wire start_edge;
 
+  assign start_edge = ~start_del & start; 
   assign done = (limit == count) & (|limit); //when limit is 0, keep counting
+
+  always@(posedge clk)
+    begin
+      start_del <= start;
+    end
    
   always@(posedge clk)
     begin
-      if(start)
+      if(start_edge)
         begin
           count <= {15'b0, en};
         end
@@ -78,12 +106,21 @@ module counter32bit(clk, start, en, done, count, limit);
   input [31:0] limit;
   output done;
   output reg [31:0] count;
+  
+  reg start_del;
+  wire start_edge;
 
+  assign start_edge = ~start_del & start; 
   assign done = (limit == count) & (|limit); //when limit is 0, keep counting
+
+  always@(posedge clk)
+    begin
+      start_del <= start;
+    end
    
   always@(posedge clk)
     begin
-      if(start)
+      if(start_edge)
         begin
           count <= {31'b0, en};
         end
@@ -100,11 +137,21 @@ module counter64bit(clk, start, en, done, count, limit);
   output done;
   output reg [63:0] count;
 
+  reg start_del;
+  wire start_edge;
+
+  assign start_edge = ~start_del & start; 
+
   assign done = (limit == count) & (|limit); //when limit is 0, keep counting
+
+  always@(posedge clk)
+    begin
+      start_del <= start;
+    end
    
   always@(posedge clk)
     begin
-      if(start)
+      if(start_edge)
         begin
           count <= {63'b0, en};
         end
