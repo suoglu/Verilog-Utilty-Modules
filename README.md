@@ -13,9 +13,11 @@ Collection of some utility modules written in Verilog.
 * Clock dividers [^3]
 * Counters [^4]
 * Timer [^5]
+* Edge detect [^6]
 
 [^1]: Common-Modules/ssd_util.v
 [^2]: Common-Modules/btn_debouncer.v
 [^3]: Common-Modules/clk_div.v
 [^4]: Common-Modules/counters.v
 [^5]: Common-Modules/timer.v
+[^6]: Common-Modules/edge_detect.v
