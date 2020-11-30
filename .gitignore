@@ -1,4 +1,6 @@
 .DS_Store
 tb.v
+test.v
 *.vcd
 *.out
+*.xdc
