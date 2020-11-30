@@ -14,6 +14,8 @@ Collection of some utility modules written in Verilog.
 * Counters [^4]
 * Timer [^5]
 * Edge detect [^6]
+* GP Pulse-Width modulators [^7]
+* RGB LED Pulse-Width modulator [^8]
 
 [^1]: Common-Modules/ssd_util.v
 [^2]: Common-Modules/btn_debouncer.v
@@ -21,3 +23,5 @@ Collection of some utility modules written in Verilog.
 [^4]: Common-Modules/counters.v
 [^5]: Common-Modules/timer.v
 [^6]: Common-Modules/edge_detect.v
+[^7]: Common-Modules/pwm.v
+[^8]: Common-Modules/rgn_led_pwm.v

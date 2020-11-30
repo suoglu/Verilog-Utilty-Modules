@@ -1,0 +1,62 @@
+/*
+ * Pulse-Width modulator to control RGB LED color
+ * Suoglu, Nov 2020
+ */
+
+module rgb_led_controller8(clk, rst, rcolor_i, gcolor_i, bcolor_i, sync, half, r_o, g_o, b_o, an);
+  input clk, rst;
+  output sync, half; //start of a new cycle, second half of the cycle
+
+  input an; //High when connecting to anode, low for cathode
+
+  input [7:0] rcolor_i, gcolor_i, bcolor_i; //Color data ins
+  output r_o, g_o, b_o; //Connected to LEDs
+
+  reg [7:0] rcolor_reg, gcolor_reg, bcolor_reg;
+  reg red, green, blue;
+  reg [7:0] counter;
+
+  assign r_o = red ^ an;
+  assign g_o = green ^ an;
+  assign b_o = blue ^ an;
+  assign half = counter[7]; 
+  assign sync = ~|counter;
+
+  //Counter for full cycle
+  always @(posedge clk or posedge rst) 
+    begin
+      if(rst)
+        begin
+          counter <= 8'd0;
+        end
+      else
+        begin
+          counter <= counter + 8'd1;
+        end
+    end
+
+  //Only change color in new cycles
+  always@(posedge sync or posedge rst)
+    begin
+      if(rst)
+        begin
+          rcolor_reg <= rcolor_i;
+          gcolor_reg <= gcolor_i;
+          bcolor_reg <= bcolor_i;
+        end
+      else
+        begin
+          rcolor_reg <= rcolor_i;
+          gcolor_reg <= gcolor_i;
+          bcolor_reg <= bcolor_i;
+        end
+    end
+  
+  //Drive LED pins
+  always@(posedge clk)
+    begin //       All 1s          All 0s         New cycle           Pulse end
+        red <= (&rcolor_reg) | ((|rcolor_reg) & ((~|counter) | ((counter != rcolor_reg) & red)));
+       blue <= (&bcolor_reg) | ((|bcolor_reg) & ((~|counter) | ((counter != bcolor_reg) & blue)));
+      green <= (&gcolor_reg) | ((|gcolor_reg) & ((~|counter) | ((counter != gcolor_reg) & green)));
+    end
+endmodule//RGB LED controller with 8 bit resolution 
