@@ -16,6 +16,7 @@ Collection of some utility modules written in Verilog.
 * Edge detect [^6]
 * GP Pulse-Width modulators [^7]
 * RGB LED Pulse-Width modulator [^8]
+* Adders [^9]
 
 [^1]: Common-Modules/ssd_util.v
 [^2]: Common-Modules/btn_debouncer.v
@@ -25,3 +26,4 @@ Collection of some utility modules written in Verilog.
 [^6]: Common-Modules/edge_detect.v
 [^7]: Common-Modules/pwm.v
 [^8]: Common-Modules/rgn_led_pwm.v
+[^9]: Common-Modules/adders.v
