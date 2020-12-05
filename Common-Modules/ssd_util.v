@@ -1,16 +1,23 @@
-// Yigit Suoglu
-// This file contains modules about seven segment display
-// Modules in this file designed for/tested with Digilent Basys 3 and 100 MHz clock frequency
-// 21 Nov 2020
-/*
- *    abcdefg signals correspond to:
- *
- *      a
- *    f   b        Note: abcdefg signals should driven low to ilmunate
- *      g                corresponding segment.
- *    e   c
- *      d
- */
+/* ----------------------------------------------------- *
+ * Title       : Seven Segment Display (SSD) Utilities   *
+ * Project     : Verilog Utility Modules                 *
+ * ----------------------------------------------------- *
+ * File        : ssd_util.v                              *
+ * Author      : Yigit Suoglu                            *
+ * Last Edit   : 21/11/2020                              *
+ * ----------------------------------------------------- *
+ * Description : Modules related to 7 Segment Displays   *
+ * ----------------------------------------------------- */
+
+/* --------------------------------------------------- *
+ +    abcdefg signals correspond to:                   +
+ +                                                     +
+ +      a                                              +
+ +    f   b   Note: abcdefg signals should driven low  +
+ +      g        to ilmunate   corresponding segment.  +
+ +    e   c                                            +
+ +      d                                              +
+ * --------------------------------------------------- */
 
 //Converts 4 bit input to hex abcdefg
 module ssd_encode(in, abcdefg);

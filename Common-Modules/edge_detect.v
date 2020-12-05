@@ -1,7 +1,13 @@
-/*
- * Two super simple modules to detect edges
- * Suoglu, Nov 2020
- */
+/* ----------------------------------------- *
+ * Title       : Edge Detector               *
+ * Project     : Verilog Utility Modules     *
+ * ----------------------------------------- *
+ * File        : edge_detect.v               *
+ * Author      : Yigit Suoglu                *
+ * Last Edit   : 25/11/2020                  *
+ * ----------------------------------------- *
+ * Description : Modules to detect edges     *
+ * ----------------------------------------- */
 
 module det_pos_edge(clk, in, pedge);
   input clk, in;

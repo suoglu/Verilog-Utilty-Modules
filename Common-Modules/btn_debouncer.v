@@ -1,6 +1,13 @@
-// Yigit Suoglu
-// Contains debouncer module for buttons
-// 21 Nov 2020
+/* ------------------------------------------ *
+ * Title       : Button Debouncer             *
+ * Project     : Verilog Utility Modules      *
+ * ------------------------------------------ *
+ * File        : btn_debouncer.v              *
+ * Author      : Yigit Suoglu                 *
+ * Last Edit   : 23/11/2020                   *
+ * ------------------------------------------ *
+ * Description : Debouncer module for buttons *
+ * ------------------------------------------ */
 
 module debouncer(clk, rst, in_n, out_c);
   input clk, rst, in_n;

@@ -1,15 +1,22 @@
-/*
- * This file contains a collection clock dividers
- * Suoglu, Nov 2020
- */
+/* ----------------------------------------- *
+ * Title       : Clock Dividers              *
+ * Project     : Verilog Utility Modules     *
+ * ----------------------------------------- *
+ * File        : clk_div.v                   *
+ * Author      : Yigit Suoglu                *
+ * Last Edit   : 23/11/2020                  *
+ * ----------------------------------------- *
+ * Description : Collection clock dividers   *
+ * ----------------------------------------- */
 
-/*
- * Naming convention for modules:
- * (d)clk_divN(_M)
- *  d: dynamic
- *  N: Max divison rate 2^N
- * _M: step size (if M > 1)
- */
+/* ------------------------------- *
+ +  Naming convention for modules: +
+ + (d)clk_divN(_M)                 +
+ +  d: dynamic                     +
+ +  N: Max divison rate 2^N        +
+ + _M: step size (if M > 1)        +
+ * ------------------------------- */
+
 //Static (Fixed) dividers, can be daisy chained for variable output rates
 module clk_div1(clk_i, rst, clk_o); //fi = 2fo
   input clk_i, rst;

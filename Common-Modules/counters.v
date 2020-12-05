@@ -1,14 +1,21 @@
-/*
- * This file contains a collection of counters
- * Suoglu, Nov 2020
- */
- // Counters are simulated with Icarus Verilog
- /*
-  + General working principles:
-  + Count up to limit (if limit is 0 count indefinitly)
-  + Only count up when enabled and not done
-  + Keep start high for one cycle to start counting (counters should be disabled)
-  */
+/* ----------------------------------------- *
+ * Title       : Counters                    *
+ * Project     : Verilog Utility Modules     *
+ * ----------------------------------------- *
+ * File        : counters.v                  *
+ * Author      : Yigit Suoglu                *
+ * Last Edit   : 23/11/2020                  *
+ * ----------------------------------------- *
+ * Description : Collection of counters      *
+ * ----------------------------------------- */
+
+ /* ------------------------------------------------------ *
+  + General working principles:                            +
+  + Count up to limit (if limit is 0 count indefinitly)    +
+  + Only count up when enabled and not done                +
+  + Keep start high for one cycle to start counting        +
+  + (counters should be disabled)                          +
+  * ------------------------------------------------------ */
 
 module counter_p#(parameter COUNTER_WIDTH = 8)(clk, start, en, done, count, limit);
   input clk, en, start; 

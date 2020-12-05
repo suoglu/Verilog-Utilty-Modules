@@ -1,7 +1,13 @@
-/*
- * General purpose Pulse-Width modulators 
- * Suoglu, Nov 2020
- */
+/* ---------------------------------------------------- *
+ * Title       : General purpose Pulse-Width modulators *
+ * Project     : Verilog Utility Modules                *
+ * ---------------------------------------------------- *
+ * File        : pwm.v                                  *
+ * Author      : Yigit Suoglu                           *
+ * Last Edit   : 30/11/2020                             *
+ * ---------------------------------------------------- *
+ * Description : Generate PWM signals                   *
+ * ---------------------------------------------------- */
 
 module pwm_256(clk, rst, value_in, sig_out, sync);
   input clk, rst;

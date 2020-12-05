@@ -1,5 +1,14 @@
-// Yigit Suoglu ~ 17720
-//This module contains adders of the diffent type
+/* ----------------------------------------- *
+ * Title       : Adders                      *
+ * Project     : Verilog Utility Modules     *
+ * ----------------------------------------- *
+ * File        : adders.v                    *
+ * Author      : Yigit Suoglu                *
+ * Last Edit   : 02/12/2020                  *
+ * ----------------------------------------- *
+ * Description : Adders of the diffent type  *
+ * ----------------------------------------- */
+ 
 
 //Simple 1 bit full adder
 module FA(A, B, Cin, S, Cout);

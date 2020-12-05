@@ -1,7 +1,13 @@
-/*
- * Pulse-Width modulator to control RGB LED color
- * Suoglu, Nov 2020
- */
+/* ----------------------------------------------------- *
+ * Title       : 8bit RGB LED driver                     *
+ * Project     : Verilog Utility Modules                 *
+ * ----------------------------------------------------- *
+ * File        : rgb_led_pwm.v                           *
+ * Author      : Yigit Suoglu                            *
+ * Last Edit   : 30/11/2020                              *
+ * ----------------------------------------------------- *
+ * Description : Generate PWM signals to control RGB led *
+ * ----------------------------------------------------- */
 
 module rgb_led_controller8(clk, rst, rcolor_i, gcolor_i, bcolor_i, sync, half, r_o, g_o, b_o, an);
   input clk, rst;
