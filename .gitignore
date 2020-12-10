@@ -4,3 +4,4 @@ test.v
 *.vcd
 *.out
 *.xdc
+*vivado*
