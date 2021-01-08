@@ -7,23 +7,16 @@ Collection of some utility modules written in Verilog.
 
 ## Included Modules
 
-* Seven Segment Display controller [^1]
-* Seven Segment Display encoder [^1]
-* Button debouncer [^2]
-* Clock dividers [^3]
-* Counters [^4]
-* Timer [^5]
-* Edge detect [^6]
-* GP Pulse-Width modulators [^7]
-* RGB LED Pulse-Width modulator [^8]
-* Adders [^9]
-
-[^1]: Common-Modules/ssd_util.v
-[^2]: Common-Modules/btn_debouncer.v
-[^3]: Common-Modules/clk_div.v
-[^4]: Common-Modules/counters.v
-[^5]: Common-Modules/timer.v
-[^6]: Common-Modules/edge_detect.v
-[^7]: Common-Modules/pwm.v
-[^8]: Common-Modules/rgn_led_pwm.v
-[^9]: Common-Modules/adders.v
+|   Module   | File |
+| ------ | ------ |
+| Seven Segment Display controller | [ssd_util.v](Modules/ssd_util.v) |
+| Seven Segment Display encoder | [ssd_util.v](Modules/ssd_util.v) |
+| Button debouncer | [btn_debouncer.v](Modules/btn_debouncer.v) |
+| Clock dividers | [clk_div.v](Modules/clk_div.v) |
+| Counters | [counters.v](Modules/counters.v) |
+| Timer | [timer.v](Modules/timer.v) |
+| Edge detect | [edge_detect.v](Modules/edge_detect.v) |
+| GP Pulse-Width modulators | [pwm.v](Modules/pwm.v) |
+| RGB LED Pulse-Width modulator | [rgn_led_pwm.v](Modules/rgn_led_pwm.v) |
+| Adders | [adders.v](Modules/adders.v) |
+| Keypad Decoder | [keypad.v](Modules/keypad.v) |
