@@ -66,3 +66,45 @@ module rgb_led_controller8(clk, rst, rcolor_i, gcolor_i, bcolor_i, sync, half, r
       green <= (&gcolor_reg) | ((|gcolor_reg) & ((~|counter) | ((counter != gcolor_reg) & green)));
     end
 endmodule//RGB LED controller with 8 bit resolution 
+
+module brightnessController(sync, rst, led_i, led_o, brightness, an);
+  input rst, an, led_i, sync;
+  input [2:0] brightness;
+  output led_o;
+  wire pass;
+  reg [2:0] counter;
+  assign led_o = (pass) ? led_i : an;
+  assign pass = ~(brightness < counter);
+  always@(posedge sync or posedge rst)
+    begin
+      if(rst)
+        begin
+          counter <= 3'd0;
+        end
+      else
+        begin
+          counter <= counter + 3'd0;
+        end
+    end
+endmodule
+
+module brightnessControllerRGB(sync, rst, rgb_i, rgb_o, brightness, an);
+  input rst, an, sync;
+  input [2:0] brightness, rgb_i;
+  output [2:0] rgb_o;
+  wire pass;
+  reg [2:0] counter;
+  assign rgb_o = (pass) ? rgb_i : {3{an}};
+  assign pass = ~(brightness < counter);
+  always@(posedge sync or posedge rst)
+    begin
+      if(rst)
+        begin
+          counter <= 3'd0;
+        end
+      else
+        begin
+          counter <= counter + 3'd0;
+        end
+    end
+endmodule
