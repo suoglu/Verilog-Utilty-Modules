@@ -83,7 +83,7 @@ module dimmer(sync, rst, led_i, led_o, brightness, an);
         end
       else
         begin
-          counter <= counter + 3'd0;
+          counter <= counter + 3'd1;
         end
     end
 endmodule
@@ -104,7 +104,7 @@ module dimmerRGB(sync, rst, rgb_i, rgb_o, brightness, an);
         end
       else
         begin
-          counter <= counter + 3'd0;
+          counter <= counter + 3'd1;
         end
     end
 endmodule
