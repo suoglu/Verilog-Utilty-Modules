@@ -30,7 +30,7 @@ module clkGenP #(parameter PERIOD = 1020, parameter CLKPERIOD = 10)(
         clk_o <= (countDone) ? ~clk_o : clk_o;
     end
   
-  always@(posedge clk_i)
+  always@(posedge clk_i or posedge rst)
     begin
       if(rst)
           counter <= {COUNTERSIZE{1'd0}};
