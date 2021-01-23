@@ -20,3 +20,4 @@ Collection of some utility modules written in Verilog.
 | RGB LED Pulse-Width modulator | [rgn_led_pwm.v](Modules/rgn_led_pwm.v) |
 | Adders | [adders.v](Modules/adders.v) |
 | Keypad Decoder | [keypad.v](Modules/keypad.v) |
+| Parameterised Clock Generator | [clkGenParam.v](Modules/clkGenParam.v) |
