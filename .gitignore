@@ -6,4 +6,4 @@ test.v
 *.xdc
 *vivado*
 *.geany
-
+.vscode
