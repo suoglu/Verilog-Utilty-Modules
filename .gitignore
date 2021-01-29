@@ -5,3 +5,5 @@ test.v
 *.out
 *.xdc
 *vivado*
+*.geany
+
