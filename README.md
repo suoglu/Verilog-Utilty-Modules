@@ -21,3 +21,4 @@ Collection of some utility modules written in Verilog.
 | Adders | [adders.v](Modules/adders.v) |
 | Keypad Decoder | [keypad.v](Modules/keypad.v) |
 | Parameterised Clock Generator | [clkGenParam.v](Modules/clkGenParam.v) |
+| 8x8 LED Matrix controller | [led_matrix.v](Modules/led_matrix.v) |

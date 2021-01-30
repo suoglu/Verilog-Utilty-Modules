@@ -4,12 +4,28 @@
  * ----------------------------------------- *
  * File        : led_matix.v                 *
  * Author      : Yigit Suoglu                *
- * Last Edit   : /01/2021                  *
+ * Last Edit   : 30/01/2021                  *
  * ----------------------------------------- *
  * Description : Modules related to led      *
  *               matrices, such as driver,   *
  *               encoder                     *
  * ----------------------------------------- */
+
+ //Static & Single array
+module ledMatrixCntr_SS(clk,rst,en,data,rows,colms,an);
+  input clk;
+  input rst;
+  input en;
+  input [7:0] data;
+  output [7:0] rows;
+  output [7:0] colms;
+  input an;
+
+  wire [63:0] array;
+
+  decoder8x8 dec(data,array);
+  ledMatrixDriver8x8 lMrxDriver(clk,rst,en,array,rows,colms,an);
+endmodule
 
 /*
  +  array indices goes as: high to illuminate
@@ -21,14 +37,14 @@
  +  .        .
  +  . 
  */
-module ledMatrixDriver8x8(
-  input clk,
-  input rst,
-  input en,
-  input [63:0] array,
-  output [7:0] rows,
-  output reg [7:0] colms,
-  input an);
+module ledMatrixDriver8x8(clk,rst,en,array,rows,colms,an);
+  input clk;
+  input rst;
+  input en;
+  input [63:0] array;
+  output [7:0] rows;
+  output reg [7:0] colms;
+  input an;
 
   reg [2:0] state;
 
@@ -53,38 +69,38 @@ module ledMatrixDriver8x8(
   always@*
     begin
       if(~en)
-        colms = {8{an}};
+        colms = {8{~an}};
       else
         case(state)
-          3'd0:
+          3'd7:
             begin 
               colms = {an,{7{~an}}};
             end
-          3'd1:
+          3'd6:
             begin 
               colms = {~an,an,{6{~an}}};
             end
-          3'd2:
+          3'd5:
             begin 
               colms = {{2{~an}},an,{5{~an}}};
             end
-          3'd3:
+          3'd4:
             begin 
               colms = {{3{~an}},an,{4{~an}}};
             end
-          3'd4:
+          3'd3:
             begin 
               colms = {{4{~an}},an,{3{~an}}};
             end
-          3'd5:
+          3'd2:
             begin 
               colms = {{5{~an}},an,{2{~an}}};
             end
-          3'd6:
+          3'd1:
             begin 
               colms = {{6{~an}},an,{1{~an}}};
             end
-          3'd7:
+          3'd0:
             begin 
               colms = {{7{~an}},an};
             end
@@ -93,9 +109,9 @@ module ledMatrixDriver8x8(
     end
 endmodule
 
-module decoder8x8(
-  input [7:0] data,
-  output reg [63:0] array);
+module decoder8x8(data,array);
+  input [7:0] data;
+  output reg [63:0] array;
 
   always@*
     begin
@@ -209,7 +225,13 @@ module decoder8x8(
         8'd106: array = 64'h00423c0000240000; //Smiley: :(
         8'd107: array = 64'h000e000e00000000; //punc:=
         8'd108: array = 64'h1c00081c08000000; //punc:+-
-
+        8'd109: array = 64'h002a000000000000; //punc: ...
+        8'd110: array = 64'h0000285428000000; //symbol: inf
+        8'd111: array = 64'h000808082a1c0800; //Arrow: up
+        8'd112: array = 64'h0010207e20100000; //Arrow: right
+        8'd113: array = 64'h00081c2a08080800; //Arrow: down
+        8'd114: array = 64'h0008047e04080000; //Arrow: left
+        8'd115: array = 64'h003c421a3a221c00; //@
         //8'd: array = 64'h;
         default: array = 64'h0;
       endcase
