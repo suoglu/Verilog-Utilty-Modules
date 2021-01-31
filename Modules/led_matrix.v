@@ -46,11 +46,11 @@ module ledMatrixDriver8x8(clk,rst,en,array,rows,colms,an);
   output reg [7:0] colms;
   input an;
   wire stateClk; //state changes every edge of stateClk
-  reg [15:0] counter; //655.36µs or ~1.526 kHz, refresh rate 190.73Hz 
+  reg [11:0] counter;
 
   reg [2:0] state;
 
-  assign stateClk = counter[15];
+  assign stateClk = counter[11];
 
   assign rows[0] = array[{3'd0, state}] ^ an;
   assign rows[1] = array[{3'd0, state}+6'd8] ^ an;
@@ -62,7 +62,7 @@ module ledMatrixDriver8x8(clk,rst,en,array,rows,colms,an);
   assign rows[7] = array[{3'd0, state}+6'd56] ^ an;
   
   //Current colmn
-  always@(posedge stateClk)
+  always@(posedge stateClk or posedge rst)
     begin
       if(rst)
         state <= 3'd0;
@@ -113,9 +113,9 @@ module ledMatrixDriver8x8(clk,rst,en,array,rows,colms,an);
     always@(posedge clk or posedge rst) //counter
     begin
       if(rst)
-        counter <= 16'b0;
+        counter <= 12'b0;
       else
-        counter <= counter + 16'b1;
+        counter <= counter + 12'b1;
     end
 endmodule
 
