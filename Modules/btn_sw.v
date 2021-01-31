@@ -11,11 +11,15 @@
  *               switches.                    *
  * ------------------------------------------ */
 
-module BTNtoSW#(parameter RESETVAL = 1'b0)(clk, rst, btn, sw);
+module BTNtoSW#(parameter RESETVAL = 1'b0, parameter NEGEDGESENS = 1'b0)(clk, rst, btn, sw);
   input clk, rst, btn;
   output reg sw;
 
-  always@(posedge btn or posedge rst)
+  wire btn_cntr;
+
+  assign btn_cntr = (NEGEDGESENS) ? ~btn : btn;
+
+  always@(posedge btn_cntr or posedge rst)
     begin
       if(rst)
         begin
