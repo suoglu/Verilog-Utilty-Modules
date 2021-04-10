@@ -9,6 +9,8 @@ Collection of some utility modules written in Verilog.
 
 |   Module   | File |
 | ------ | ------ |
+| Pseudo-Random  Number Generator | [pseudoRandNumGen.v](Modules/pseudoRandNumGen.v) |
+| Linear Shift Registers | [pseudoRandNumGen.v](Modules/pseudoRandNumGen.v) |
 | Seven Segment Display controller | [ssd_util.v](Modules/ssd_util.v) |
 | Seven Segment Display encoder | [ssd_util.v](Modules/ssd_util.v) |
 | Button debouncer | [btn_debouncer.v](Modules/btn_debouncer.v) |
