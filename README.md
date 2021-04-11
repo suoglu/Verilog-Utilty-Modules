@@ -26,3 +26,4 @@ Collection of some utility modules written in Verilog.
 | 8x8 LED Matrix controller | [led_matrix.v](Modules/led_matrix.v) |
 | Button Switch Converters | [btn_sw.v](Modules/btn_sw.v) |
 | Hexadecimal to decimal converter | [hextoDec.v](Modules/hextoDec.v) |
+| Modulo Calculator | [modulo.v](Modules/modulo.v) |
