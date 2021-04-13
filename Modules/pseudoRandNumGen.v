@@ -4,7 +4,7 @@
  * ----------------------------------------------- *
  * File        : pseudoRandNumGen.v                *
  * Author      : Yigit Suoglu                      *
- * Last Edit   : /04/2021                        *
+ * Last Edit   : 10/04/2021                        *
  * ----------------------------------------------- *
  * Description : Set of modules to generate        *
  *               Pseudo-Random numbers             *
