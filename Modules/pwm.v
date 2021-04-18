@@ -8,12 +8,18 @@
  * ---------------------------------------------------- *
  * Description : Generate PWM signals                   *
  * ---------------------------------------------------- */
+ 
+/*
+ * modules pmw_* does not hold value_in value stable during operation. 
+ * However implemented algorithm exhibit immunity against changes in   
+ * value_in to a some extent, e.g. after sig_out is low
+ */
 
 module pwm_256(clk, rst, value_in, sig_out, sync);
   input clk, rst;
   input [7:0] value_in;
   output reg sig_out;
-  output sync;
+  output sync; //New cycle begins at negedge
 
   reg [7:0] counter;
   
@@ -37,7 +43,7 @@ module pwm_256(clk, rst, value_in, sig_out, sync);
     end
 endmodule//8 bit, 256 values
 
-module pwm_256_sync(clk, rst, value_in, sig_out);
+module pwm256(clk, rst, value_in, sig_out);
   input clk, rst;
   input [7:0] value_in;
   output sig_out;
@@ -58,13 +64,13 @@ module pwm_256_sync(clk, rst, value_in, sig_out);
           value_reg <= value_in;
         end
     end
-endmodule//8 bit, 256 values, autosync
+endmodule//8 bit, 256 values
 
 module pwm_per100(clk, rst, value_in, sig_out, sync);
   input clk, rst;
   input [6:0] value_in;
   output reg sig_out;
-  output sync;
+  output sync; //New cycle begins at negedge
 
   reg [6:0] counter;
   
@@ -88,7 +94,7 @@ module pwm_per100(clk, rst, value_in, sig_out, sync);
     end
 endmodule//100 values
 
-module pwm_per100_sync(clk, rst, value_in, sig_out);
+module pwm100(clk, rst, value_in, sig_out);
   input clk, rst;
   input [6:0] value_in;
   output sig_out;
@@ -109,4 +115,5 @@ module pwm_per100_sync(clk, rst, value_in, sig_out);
           value_reg <= value_in;
         end
     end
-endmodule//100 values, autosync
+endmodule//100 values
+
