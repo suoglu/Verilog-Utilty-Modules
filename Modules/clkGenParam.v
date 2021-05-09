@@ -4,7 +4,7 @@
  * -------------------------------------------- *
  * File        : clkGenParam.v                  *
  * Author      : Yigit Suoglu                   *
- * Last Edit   : 23/01/2021                     *
+ * Last Edit   : 03/05/2021                     *
  * -------------------------------------------- *
  * Description : Generates various clock freq.  *
  * -------------------------------------------- */
