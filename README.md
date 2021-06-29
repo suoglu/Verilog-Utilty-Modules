@@ -27,3 +27,4 @@ Collection of some utility modules written in Verilog.
 | Button Switch Converters | [btn_sw.v](Modules/btn_sw.v) |
 | Hexadecimal to decimal converter | [hextoDec.v](Modules/hextoDec.v) |
 | Modulo Calculator | [modulo.v](Modules/modulo.v) |
+| Fundamental Logic Gates| [basic_gates.v](Modules/basic_gates.v) |
