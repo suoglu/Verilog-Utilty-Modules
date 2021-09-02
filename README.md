@@ -28,3 +28,4 @@ Collection of some utility modules written in Verilog.
 | Hexadecimal to decimal converter | [hextoDec.v](Modules/hextoDec.v) |
 | Modulo Calculator | [modulo.v](Modules/modulo.v) |
 | Fundamental Logic Gates| [basic_gates.v](Modules/basic_gates.v) |
+| FIFO | [fifo.v](Modules/fifo.v) |
