@@ -57,7 +57,7 @@ module parallel_to_serial#(
 
 
   //Counters
-  assign counter_done = (counter == DATA_SIZE);
+  assign counter_done = (counter == (DATA_SIZE-1));
   always@(posedge clk) begin
     if(~working) begin
       counter <= 0;
