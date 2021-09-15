@@ -1,4 +1,4 @@
-# Verilog Utilty Modules
+# Verilog Utility Modules
 
 Collection of some utility modules written in Verilog.
 
@@ -22,10 +22,11 @@ Collection of some utility modules written in Verilog.
 | RGB LED Pulse-Width modulator | [rgn_led_pwm.v](Modules/rgn_led_pwm.v) |
 | Adders | [adders.v](Modules/adders.v) |
 | Keypad Decoder | [keypad.v](Modules/keypad.v) |
-| Parameterised Clock Generator | [clkGenParam.v](Modules/clkGenParam.v) |
+| Parameterized Clock Generator | [clkGenParam.v](Modules/clkGenParam.v) |
 | 8x8 LED Matrix controller | [led_matrix.v](Modules/led_matrix.v) |
 | Button Switch Converters | [btn_sw.v](Modules/btn_sw.v) |
 | Hexadecimal to decimal converter | [hextoDec.v](Modules/hextoDec.v) |
 | Modulo Calculator | [modulo.v](Modules/modulo.v) |
 | Fundamental Logic Gates| [basic_gates.v](Modules/basic_gates.v) |
 | FIFO | [fifo.v](Modules/fifo.v) |
+| Parallel to Serial Converter | [parallel_to_serial.v](Modules/parallel_to_serial.v) |
