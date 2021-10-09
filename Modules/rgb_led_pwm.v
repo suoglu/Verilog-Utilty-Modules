@@ -4,7 +4,7 @@
  * ----------------------------------------------------- *
  * File        : rgb_led_pwm.v                           *
  * Author      : Yigit Suoglu                            *
- * Last Edit   : 19/01/2021                              *
+ * Last Edit   : 09/10/2021                              *
  * ----------------------------------------------------- *
  * Description : Generate PWM signals to control RGB led *
  * ----------------------------------------------------- */
@@ -67,15 +67,15 @@ module rgb_led_controller8(clk, rst, rcolor_i, gcolor_i, bcolor_i, sync, half, r
     end
 endmodule//RGB LED controller with 8 bit resolution 
 
-module dimmer(sync, rst, led_i, led_o, brightness, an);
-  input rst, an, led_i, sync;
+module dimmer(clk, rst, sync, led_i, led_o, brightness, an);
+  input clk, rst, an, led_i, sync;
   input [2:0] brightness;
   output led_o;
   wire pass;
   reg [2:0] counter;
   assign led_o = (pass) ? led_i : an;
   assign pass = ~(brightness < counter);
-  always@(posedge sync or posedge rst)
+  always@(posedge clk or posedge rst)
     begin
       if(rst)
         begin
@@ -83,12 +83,12 @@ module dimmer(sync, rst, led_i, led_o, brightness, an);
         end
       else
         begin
-          counter <= counter + 3'd1;
+          counter <= counter + {2'd0, sync};
         end
     end
 endmodule
 
-module dimmerRGB(sync, rst, rgb_i, rgb_o, brightness, an);
+module dimmerRGB(clk, rst, sync, rgb_i, rgb_o, brightness, an);
   input rst, an, sync;
   input [2:0] brightness, rgb_i;
   output [2:0] rgb_o;
@@ -96,7 +96,7 @@ module dimmerRGB(sync, rst, rgb_i, rgb_o, brightness, an);
   reg [2:0] counter;
   assign rgb_o = (pass) ? rgb_i : {3{an}};
   assign pass = ~(brightness < counter);
-  always@(posedge sync or posedge rst)
+  always@(posedge clk or posedge rst)
     begin
       if(rst)
         begin
@@ -104,7 +104,7 @@ module dimmerRGB(sync, rst, rgb_i, rgb_o, brightness, an);
         end
       else
         begin
-          counter <= counter + 3'd1;
+          counter <= counter + {2'd1, sync};
         end
     end
 endmodule

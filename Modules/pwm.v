@@ -4,7 +4,7 @@
  * ---------------------------------------------------- *
  * File        : pwm.v                                  *
  * Author      : Yigit Suoglu                           *
- * Last Edit   : 30/11/2020                             *
+ * Last Edit   : 09/10/2021                             *
  * ---------------------------------------------------- *
  * Description : Generate PWM signals                   *
  * ---------------------------------------------------- */
@@ -53,7 +53,7 @@ module pwm256(clk, rst, value_in, sig_out);
 
   pwm_256 pwm_core(clk, rst, value_reg, sig_out, sync);
 
-  always@(posedge sync or posedge rst)
+  always@(posedge clk or posedge rst)
     begin
       if(rst)
         begin
@@ -61,7 +61,7 @@ module pwm256(clk, rst, value_in, sig_out);
         end
       else
         begin
-          value_reg <= value_in;
+          value_reg <= (sync) ? value_in : value_reg;
         end
     end
 endmodule//8 bit, 256 values
@@ -104,7 +104,7 @@ module pwm100(clk, rst, value_in, sig_out);
 
   pwm_per100 pwm_core(clk, rst, value_reg, sig_out, sync);
 
-  always@(posedge sync or posedge rst)
+  always@(posedge clk or posedge rst)
     begin
       if(rst)
         begin
@@ -112,7 +112,7 @@ module pwm100(clk, rst, value_in, sig_out);
         end
       else
         begin
-          value_reg <= value_in;
+          value_reg <= (sync) ? value_in : value_reg;
         end
     end
 endmodule//100 values
