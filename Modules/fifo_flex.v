@@ -1,15 +1,16 @@
 /* ----------------------------------------- *
- * Title       : FIFO Buffer                 *
+ * Title       : FIFO Buffer Flexible Size   *
  * Project     : Verilog Utility Modules     *
  * ----------------------------------------- *
- * File        : fifo.v                      *
+ * File        : fifo_flex.v                 *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 02/09/2021                  *
  * ----------------------------------------- *
- * Description : A generic FIFO buffer       *
+ * Description : A generic FIFO buffer with  *
+ *               flexible buffer size        *
  * ----------------------------------------- */
 
-module fifo_level#(
+module fifo_fl#(
   parameter DATA_WIDTH = 32, //Size of each data entry
   parameter FIFO_LENGTH = 16, //Number of entries
   parameter COUNTER_SIZE = $clog2(FIFO_LENGTH+1) //Shoud be able to fit FIFO_LENGTH, best to leave as it is
@@ -73,7 +74,7 @@ module fifo_level#(
   end
 endmodule
 
-module fifo_edge#(
+module fifo_fe#(
   parameter DATA_WIDTH = 32, //Size of each data entry
   parameter FIFO_LENGTH = 16, //Number of entries
   parameter COUNTER_SIZE = $clog2(FIFO_LENGTH+1) //Shoud be able to fit FIFO_LENGTH, best to leave as it is
