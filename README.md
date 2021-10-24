@@ -28,5 +28,6 @@ Collection of some utility modules written in Verilog.
 | Hexadecimal to decimal converter | [hextoDec.v](Modules/hextoDec.v) |
 | Modulo Calculator | [modulo.v](Modules/modulo.v) |
 | Fundamental Logic Gates| [basic_gates.v](Modules/basic_gates.v) |
-| FIFO | [fifo.v](Modules/fifo.v) |
 | Parallel to Serial Converter | [parallel_to_serial.v](Modules/parallel_to_serial.v) |
+| FIFO with Flexible Size | [fifo_flex.v](Modules/fifo_flex.v) |
+| FIFO with Circular Buffer | [fifo.v](Modules/fifo.v) |
