@@ -31,3 +31,10 @@ Collection of some utility modules written in Verilog.
 | Parallel to Serial Converter | [parallel_to_serial.v](Modules/parallel_to_serial.v) |
 | FIFO with Flexible Size | [fifo_flex.v](Modules/fifo_flex.v) |
 | FIFO with Circular Buffer | [fifo.v](Modules/fifo.v) |
+| Tri-State Buffer | [tribuff.v](Modules/tribuff.v) |
+
+## Xilinx Primitives
+
+|   Primitive   | File |
+| ------ | ------ |
+| Bi-Directional Buffer | [IOBUF.v](Xilinx_Primitives/IOBUF.v) |
