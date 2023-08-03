@@ -5,6 +5,7 @@
  * File        : fifo.v                      *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 24/10/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : A generic FIFO circular     *
  *               buffer                      *

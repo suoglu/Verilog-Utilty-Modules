@@ -38,3 +38,7 @@ Collection of some utility modules written in Verilog.
 |   Primitive   | File |
 | ------ | ------ |
 | Bi-Directional Buffer | [IOBUF.v](Xilinx_Primitives/IOBUF.v) |
+
+## License
+
+CERN Open Hardware Licence Version 2 - Weakly Reciprocal

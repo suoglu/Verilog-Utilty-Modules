@@ -5,6 +5,7 @@
  * File        : basic_gates.v               *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 30/06/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : "Wrapper" for Fundamental   *
  *                logic gates                *

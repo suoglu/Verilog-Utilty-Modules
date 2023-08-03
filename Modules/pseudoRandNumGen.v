@@ -5,6 +5,7 @@
  * File        : pseudoRandNumGen.v                *
  * Author      : Yigit Suoglu                      *
  * Last Edit   : 10/04/2021                        *
+ * Licence     : CERN-OHL-W                        *
  * ----------------------------------------------- *
  * Description : Set of modules to generate        *
  *               Pseudo-Random numbers             *

@@ -5,6 +5,7 @@
  * File        : btn_sw.v                     *
  * Author      : Yigit Suoglu                 *
  * Last Edit   : 30/01/2021                   *
+ * Licence     : CERN-OHL-W                   *
  * ------------------------------------------ *
  * Description : Allows the use of switches   *
  *               as buttons, and buttons as   *

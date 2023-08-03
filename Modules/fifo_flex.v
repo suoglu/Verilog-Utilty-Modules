@@ -5,6 +5,7 @@
  * File        : fifo_flex.v                 *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 02/09/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : A generic FIFO buffer with  *
  *               flexible buffer size        *

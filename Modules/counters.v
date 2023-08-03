@@ -5,6 +5,7 @@
  * File        : counters.v                  *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 23/11/2020                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Collection of counters      *
  * ----------------------------------------- */

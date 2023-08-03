@@ -5,6 +5,7 @@
  * File        : edge_detect.v               *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 25/11/2020                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Modules to detect edges     *
  * ----------------------------------------- */

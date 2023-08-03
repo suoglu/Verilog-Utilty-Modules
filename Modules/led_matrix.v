@@ -5,6 +5,7 @@
  * File        : led_matix.v                 *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 30/01/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Modules related to led      *
  *               matrices, such as driver,   *

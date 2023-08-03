@@ -5,6 +5,7 @@
  * File        : pwm.v                                  *
  * Author      : Yigit Suoglu                           *
  * Last Edit   : 09/10/2021                             *
+ * Licence     : CERN-OHL-W                             *
  * ---------------------------------------------------- *
  * Description : Generate PWM signals                   *
  * ---------------------------------------------------- */

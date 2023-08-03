@@ -6,6 +6,7 @@
  * File        : hextoDec.v                   *
  * Author      : Yigit Suoglu                 *
  * Last Edit   : 04/03/2021                   *
+ * Licence     : CERN-OHL-W                   *
  * ------------------------------------------ *
  * Description : Convert Hexadecimal digits   *
  *               into decimal digits          *

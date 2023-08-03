@@ -5,6 +5,7 @@
  * File        : keypad.v                    *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 08/01/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Decode keypads, Rows should *
  *               be connected to Vcc with    *

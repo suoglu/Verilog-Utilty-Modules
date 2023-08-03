@@ -5,6 +5,7 @@
  * File        : modulo.v                    *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 11/04/2021                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Modules for modulo opration *
  * ----------------------------------------- */

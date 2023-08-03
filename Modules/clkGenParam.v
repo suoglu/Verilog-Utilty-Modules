@@ -5,6 +5,7 @@
  * File        : clkGenParam.v                  *
  * Author      : Yigit Suoglu                   *
  * Last Edit   : 03/05/2021                     *
+ * Licence     : CERN-OHL-W                     *
  * -------------------------------------------- *
  * Description : Generates various clock freq.  *
  * -------------------------------------------- */

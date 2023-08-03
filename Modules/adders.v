@@ -5,6 +5,7 @@
  * File        : adders.v                    *
  * Author      : Yigit Suoglu                *
  * Last Edit   : 02/12/2020                  *
+ * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : Adders of the diffent type  *
  * ----------------------------------------- */

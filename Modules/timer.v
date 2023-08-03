@@ -5,6 +5,7 @@
  * File        : timer.v                            *
  * Author      : Yigit Suoglu                       *
  * Last Edit   : 25/11/2020                         *
+ * Licence     : CERN-OHL-W                         *
  * ------------------------------------------------ *
  * Description : Timer module with adjustable width *
  * ------------------------------------------------ */

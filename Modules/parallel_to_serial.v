@@ -5,6 +5,7 @@
  * File        : parallel_to_serial.v              *
  * Author      : Yigit Suoglu                      *
  * Last Edit   : 16/05/2021                        *
+ * Licence     : CERN-OHL-W                        *
  * ----------------------------------------------- *
  * Description : Simple converter to convert       *
  *               paralel data to a serial stream   *
