@@ -4,23 +4,24 @@
  * ----------------------------------------- *
  * File        : fifo.v                      *
  * Author      : Yigit Suoglu                *
- * Last Edit   : 24/10/2021                  *
+ * Last Edit   : 13/11/2025                  *
  * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : A generic FIFO circular     *
  *               buffer                      *
  * ----------------------------------------- */
 
+//Level sensetive push/drop
 module fifo_cl#(
   parameter DATA_WIDTH = 32, //Size of each data entry
-  parameter FIFO_LENGTH_SIZE = 6 //Width of number of entries
+  parameter FIFO_DEPTH = 64 //Max number of buffer entries
   )(
   input clk,
   input rst,
   //Flags
   output fifo_empty,
   output fifo_full,
-  output reg [FIFO_LENGTH_SIZE:0] awaiting_count, //Number of entires waiting in the buffer
+  output reg [$clog2(FIFO_DEPTH):0] awaiting_count, //Number of entires waiting in the buffer
   //Data in
   input [DATA_WIDTH-1:0] data_i,
   input push, //Add data_i to buffer, level sensitive
@@ -28,8 +29,8 @@ module fifo_cl#(
   output [DATA_WIDTH-1:0] data_o,
   input drop //Entry at data_o is read, should be set after data_o is read, level sensitive
   );
-  localparam FIFO_LENGTH = 2 ** FIFO_LENGTH_SIZE;
-  reg [DATA_WIDTH-1:0] buffer[FIFO_LENGTH-1:0];
+  localparam FIFO_LENGTH_SIZE = $clog2(FIFO_DEPTH);
+  reg [DATA_WIDTH-1:0] buffer[FIFO_DEPTH-1:0];
 
   //Pointers for circular buffer
   reg  [FIFO_LENGTH_SIZE-1:0]  read_ptr;
@@ -70,16 +71,17 @@ module fifo_cl#(
   end
 endmodule
 
-module fifo_ce#(
+//edge sensetive push/drop
+module fifo_ce#(  
   parameter DATA_WIDTH = 32, //Size of each data entry
-  parameter FIFO_LENGTH_SIZE = 6 //Width of number of entries
+  parameter FIFO_DEPTH = 64 //Max number of buffer entries
   )(
   input clk,
   input rst,
   //Flags
   output fifo_empty,
   output fifo_full,
-  output reg [FIFO_LENGTH_SIZE:0] awaiting_count, //Number of entires waiting in the buffer
+  output reg [$clog2(FIFO_DEPTH):0] awaiting_count, //Number of entires waiting in the buffer
   //Data in
   input [DATA_WIDTH-1:0] data_i,
   input push, //Add data_i to buffer, edge sensitive
@@ -95,7 +97,7 @@ module fifo_ce#(
   wire push_posedge = ~push_d & push;
   wire drop_posedge = ~drop_d & drop;
 
-  fifo_cl #(.DATA_WIDTH(DATA_WIDTH), .FIFO_LENGTH_SIZE(FIFO_LENGTH_SIZE))
+  fifo_cl #(.DATA_WIDTH(DATA_WIDTH), .FIFO_DEPTH(FIFO_DEPTH))
       fifo(.clk(clk), .rst(rst),
            .fifo_empty(fifo_empty), .fifo_full(fifo_full), .awaiting_count(awaiting_count),
            .data_i(data_i), .push(push_posedge),
