@@ -4,7 +4,7 @@
  * ----------------------------------------- *
  * File        : fifo.v                      *
  * Author      : Yigit Suoglu                *
- * Last Edit   : 13/11/2025                  *
+ * Last Edit   : 14/11/2025                  *
  * Licence     : CERN-OHL-W                  *
  * ----------------------------------------- *
  * Description : A generic FIFO circular     *
@@ -30,17 +30,24 @@ module fifo_cl#(
   input drop //Entry at data_o is read, should be set after data_o is read, level sensitive
   );
   localparam FIFO_LENGTH_SIZE = $clog2(FIFO_DEPTH);
+  localparam FIFO_DEPTH_POW2 = ((FIFO_DEPTH & (FIFO_DEPTH - 1)) == 0);
+  localparam WRITE_PTR_SUM_SIZE = FIFO_DEPTH_POW2 ? FIFO_LENGTH_SIZE - 1 : FIFO_LENGTH_SIZE;
   reg [DATA_WIDTH-1:0] buffer[FIFO_DEPTH-1:0];
 
   //Pointers for circular buffer
   reg  [FIFO_LENGTH_SIZE-1:0]  read_ptr;
-  wire [FIFO_LENGTH_SIZE-1:0] write_ptr = read_ptr + awaiting_count[FIFO_LENGTH_SIZE-1:0];
+  wire [FIFO_LENGTH_SIZE-1:0]  read_ptr_overflow = FIFO_DEPTH_POW2 ? 0 : read_ptr == (FIFO_DEPTH-1);
+  wire [WRITE_PTR_SUM_SIZE:0]      write_ptr_pre = awaiting_count[FIFO_LENGTH_SIZE-1:0] + read_ptr;
+  wire write_ptr_overflow = FIFO_DEPTH_POW2 ? 0 : write_ptr_pre > (FIFO_DEPTH-1);
+  wire [FIFO_LENGTH_SIZE-1:0] write_ptr = write_ptr_overflow ? write_ptr_pre - FIFO_DEPTH : write_ptr_pre;
 
   always@(posedge clk) begin
     if(rst) begin
       read_ptr <= 0;
     end else begin
-      read_ptr <= (~fifo_empty & drop) ? read_ptr + 1 : read_ptr;
+      read_ptr <= (~fifo_empty & drop) ? 
+                     read_ptr_overflow ? 0 : read_ptr + 1 
+                                           : read_ptr;
     end
   end
 
@@ -59,7 +66,7 @@ module fifo_cl#(
 
   //fifo flags
   assign fifo_empty = (awaiting_count == 0);
-  assign fifo_full  =  awaiting_count[FIFO_LENGTH_SIZE];
+  assign fifo_full  = (awaiting_count == FIFO_DEPTH);
   
 
   //Handle data pins

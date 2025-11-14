@@ -101,12 +101,20 @@ async def test_fill_and_full_flag(dut):
 
     depth = int(dut.FIFO_DEPTH.value)
 
+    print(f"FIFO depth detected as {depth}")
+
     # Fill FIFO
-    for i in range(depth):
+    for i in range(depth-1):
         await push_word(dut, i)
         await RisingEdge(dut.clk) # wait a cycle between pushes for edge sensitivity
     
     await ReadOnly()  # ensure we read stable values
+    assert dut.fifo_full.value == 0, "fifo_full should not be asserted before FIFO is full"
+    assert dut.fifo_empty.value == 0, "fifo_empty should not be asserted when FIFO has data"
+    await RisingEdge(dut.clk) # wait a cycle between pushes for edge sensitivity
+    lastValue = 1195
+    await push_word(dut, lastValue)
+    await RisingEdge(dut.clk) # wait a cycle between pushes for edge sensitivity
 
     assert dut.fifo_full.value == 1, f"fifo_full should be asserted when FIFO is full {dut.awaiting_count.value} != {depth}"
     assert dut.fifo_empty.value == 0, "fifo_empty should not be asserted when FIFO is full"
@@ -122,11 +130,21 @@ async def test_fill_and_full_flag(dut):
     await RisingEdge(dut.clk)
 
     # Read everything back and verify order
-    for i in range(depth):
+    for i in range(depth-1):
         val = await drop_word(dut)
         await RisingEdge(dut.clk) # wait a cycle between drops for edge sensitivity
         assert val == i, f"FIFO order error at index {i}: got {val}, expected {i}"
 
+    await ReadOnly()  # ensure we read stable values
+    assert dut.fifo_empty.value == 0, "fifo_empty should not be asserted before draining FIFO"
+    assert int(dut.awaiting_count.value) == 1, "awaiting_count should be 1 before last drop"
+    assert dut.fifo_full.value == 0, "fifo_full should not be asserted when FIFO is not full"
+    await RisingEdge(dut.clk) # wait a cycle between drops for edge sensitivity
+
+
+    val = await drop_word(dut)
+    await RisingEdge(dut.clk) # wait a cycle between drops for edge sensitivity
+    assert val == lastValue, f"FIFO order error at end: got {val}, expected {lastValue}"
     await ReadOnly()  # ensure we read stable values
 
     assert dut.fifo_empty.value == 1, "fifo_empty should be asserted after draining FIFO"
@@ -149,7 +167,7 @@ async def test_randomized_sequence(dut):
     model = []  # software model of FIFO contents
 
     num_cycles = 500
-
+    last_drop = None
     for cycle in range(num_cycles):
         hw_count = int(dut.awaiting_count.value)
         hw_empty = bool(dut.fifo_empty.value)
@@ -188,7 +206,10 @@ async def test_randomized_sequence(dut):
         elif do_drop:
             expected = model.pop(0)
             got = await drop_word(dut)
-            assert got == expected, f"[cycle {cycle}] drop mismatch: got 0x{got:X}, expected 0x{expected:X}"
+            await ReadOnly()  # ensure we read stable values
+            assert got == expected, f"[cycle {cycle}] drop mismatch: got 0x{got:X} (next 0x{int(dut.data_o.value):X}" \
+                                      f", prev 0x{last_drop:X}), expected 0x{expected:X} (all {[f"{i}: {hex(x).upper()}," for i, x in enumerate(model)]})"
+            last_drop = got
         await RisingEdge(dut.clk) # wait a cycle between operations for edge sensitivity
 
     # Final consistency check
