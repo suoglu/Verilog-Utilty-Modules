@@ -1,10 +1,10 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1763081591" />
-    <testcase name="test_reset_and_flags" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="45" time="0.00038504600524902344" sim_time_ns="30.0" ratio_time="77912.76780185758" />
-    <testcase name="test_single_push_pop" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="59" time="0.0005705356597900391" sim_time_ns="80.0" ratio_time="140219.10572503135" />
-    <testcase name="test_fill_and_full_flag" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="93" time="0.004190921783447266" sim_time_ns="1200.0" ratio_time="286333.18921378994" />
-    <testcase name="test_randomized_sequence" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="154" time="0.038735389709472656" sim_time_ns="10410.0" ratio_time="268746.4894009897" />
-    <testcase name="test_edge_sensitivity" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="220" time="0.0008502006530761719" sim_time_ns="250.0" ratio_time="294048.23331463826" />
+    <property name="random_seed" value="1763322672" />
+    <testcase name="test_reset_and_flags" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="45" time="0.0004265308380126953" sim_time_ns="30.0" ratio_time="70334.89100055897" />
+    <testcase name="test_single_push_pop" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="59" time="0.0006024837493896484" sim_time_ns="80.0" ratio_time="132783.66442421844" />
+    <testcase name="test_fill_and_full_flag" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="93" time="0.011541366577148438" sim_time_ns="3300.0" ratio_time="285928.0118988597" />
+    <testcase name="test_randomized_sequence" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="154" time="0.037288665771484375" sim_time_ns="10190.0" ratio_time="273273.3872122762" />
+    <testcase name="test_edge_sensitivity" classname="test_fifo_ce" file="/home/suoglu/Projects/Personal/verilog-util/sim/test_fifo_ce/test_fifo_ce.py" lineno="220" time="0.0008711814880371094" sim_time_ns="250.0" ratio_time="286966.6119321292" />
   </testsuite>
 </testsuites>

@@ -10,3 +10,6 @@ test.v
 tbs
 *sim_build/
 *__pycache__/
+*cocotb-venv
+*sim_build
+results.xml
